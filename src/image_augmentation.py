@@ -10,14 +10,13 @@ IMAGE_PATH = 'image/*.png'
 def load_images():
     im = hp.load_images(IMAGE_PATH)
     return im
-
-
 # Brighten / darken / random_brightness / add_Shadow 
-# 
 
+def path_create(_dict = dict()):
+    for _key in _dict.keys():
+        os.makedirs(_key, exist_ok=True)
 
 def preprocess_dict():
-
     funs = {"darken" : am.darken, 
             "brighten": am.brighten, 
             "random_brightness" : am.random_brightness, 
@@ -28,7 +27,6 @@ def preprocess_dict():
             "add_speed" : am.add_speed, 
             "add_sunflare": am.add_sun_flare
     }
-
     return funs
 
 def get_images():
@@ -36,7 +34,7 @@ def get_images():
     # So list is of files is needed 
     listed_images = os.listdir(IMAGE_PATH)
     print("Number of files to processing {}".format(len(_images)))
-    return listed_images _
+    return listed_images
 
 def main():
     _images = load_images()
